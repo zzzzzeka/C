@@ -1,0 +1,45 @@
+<form [formGroup]="userForm" novalidate *ngIf="user">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Age:
+      <input class="form-control" formControlName="age">
+    </label>
+  </div>
+
+  <button (click)="skillsDialog.show()">Edit skills</button>
+  <dialogbox #skillsddialog>
+    <div body>
+
+    </div>
+    <div footer align="right">
+      <button (click)="saveSkills()">Save</button>
+    </div>
+  </dialogbox>
+
+  <div formArrayName="skills" class="well well-lg">
+    <div *ngIf="userSkills">
+      Skills:
+      <div *ngFor="let skill of userSkills.controls; let i=index" [formGroupName]="i">
+        <div class="form-group">
+          <select class="form-control" formControlName="skillId">
+            <option *ngFor="let s of skills" value="{{s.id}}">{{s.name}}</option>
+          </select>
+          <select class="form-control" formControlName="experience">
+            <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
+          </select>
+          <button type="button" (click)="removeSkill(skill)">-</button>
+        </div>
+      </div>
+      <button type="button" (click)="addNewSkill()">Add skill</button>
+    </div>
+  </div>
+  <div>
+    <a href="javascript:void(0)" (click)="onSubmit()">Save</a> &nbsp;
+    <a href="javascript:void(0)" (click)="revert()">Revert</a>
+  </div>
+</form>
+

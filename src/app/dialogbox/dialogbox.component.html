@@ -1,0 +1,16 @@
+<div #dialogbox class="background">
+
+  <div class="dialog">
+    <div align="right">
+      <button (click)="hide()">X</button>
+    </div>
+    <ng-content select="[header]"></ng-content>
+    <div class="content">
+      <div class="body">
+        <ng-content select="[body]"></ng-content>
+      </div>
+    </div>
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>
+

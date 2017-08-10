@@ -63,5 +63,6 @@
       "pipe": true,
       "service": true
     }
-  }
+  },
+  "scripts": ["../node_modules/underscore/underscore.js"]
 }

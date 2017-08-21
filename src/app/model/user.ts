@@ -5,4 +5,5 @@ export class User{
   name: String = '';
   age: number;
   skills: UserSkill[] = [];
+  information: String = '';
 }

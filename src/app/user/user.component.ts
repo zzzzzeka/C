@@ -49,10 +49,6 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/users']);
   }
 
-  public  revert() {
-
-  }
-
   public  removeSkill(skill) {
     console.log(skill);
     // this.userSkills.removeAt(this.userSkills.controls.findIndex(skFG => skFG == skill));

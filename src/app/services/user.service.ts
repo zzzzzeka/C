@@ -6,8 +6,8 @@ import {Skill} from "../model/skill";
 @Injectable()
 export class UserService {
   private users: User[] = [
-    {id: 1, name: 'aa', age: 1, skills: [{id: 1, skillId: 1, userId:1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 2}]},
-    {id: 2, name: 'bb', age: 2, skills: []}
+    {information:'', id: 1, name: 'aa', age: 1, skills: [{id: 1, skillId: 1, userId:1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 2}]},
+    {information:'', id: 2, name: 'bb', age: 2, skills: []}
   ];
 
   private skills: string[] = [];

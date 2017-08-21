@@ -1,42 +1,29 @@
-<form [formGroup]="userForm" novalidate *ngIf="user">
-  <div class="form-group">
-    <label class="center-block">Name:
-      <input class="form-control" formControlName="name">
+<form novalidate *ngIf="user" class="form-inline">
+
+  <div>
+    {{user|json}}
+  </div>
+
+  <div class="form-group has-success has-feedback">
+    <label for="inp">Name:</label>
+    <input type="text" class="form-control" id="inp" name="name" [(ngModel)]="user.name">
+  </div>
+
+  <div>
+    <label>Age:
+      <input name="age" [(ngModel)]="user.age">
     </label>
   </div>
-  <div class="form-group">
-    <label class="center-block">Age:
-      <input class="form-control" formControlName="age">
-    </label>
-  </div>
-
-  <button (click)="skillsDialog.show()">Edit skills</button>
-  <dialogbox #skillsddialog>
-    <div body>
-
-    </div>
-    <div footer align="right">
-      <button (click)="saveSkills()">Save</button>
-    </div>
-  </dialogbox>
-
-  <div formArrayName="skills" class="well well-lg">
-    <div *ngIf="userSkills">
-      Skills:
-      <div *ngFor="let skill of userSkills.controls; let i=index" [formGroupName]="i">
-        <div class="form-group">
-          <select class="form-control" formControlName="skillId">
-            <option *ngFor="let s of skills" value="{{s.id}}">{{s.name}}</option>
-          </select>
-          <select class="form-control" formControlName="experience">
-            <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
-          </select>
-          <button type="button" (click)="removeSkill(skill)">-</button>
-        </div>
-      </div>
-      <button type="button" (click)="addNewSkill()">Add skill</button>
+  <div>Skills:
+    <div *ngFor="let s of user.skills">
+      {{getSkillName(s.skillId)}} - {{s.experience}}
     </div>
   </div>
+
+  <!--<select formControlName="experience">-->
+  <!--<option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>-->
+  <!--</select>-->
+
   <div>
     <a href="javascript:void(0)" (click)="onSubmit()">Save</a> &nbsp;
     <a href="javascript:void(0)" (click)="revert()">Revert</a>

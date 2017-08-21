@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {User} from "./model/user";
-import {UserService} from "./services/user.service";
-import {Skill} from "./model/skill";
+import {User} from "../model/user";
+import {UserService} from "../services/user.service";
+import {Skill} from "../model/skill";
 import {ActivatedRoute, Router} from "@angular/router";
 import {isUndefined} from "util";
 

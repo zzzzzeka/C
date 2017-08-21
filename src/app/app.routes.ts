@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
-import {UsersComponent} from "./users.component";
-import {UserComponent} from "./user.component";
+import {UsersComponent} from "./users/users.component";
+import {UserComponent} from "./user/user.component";
 import {NewsComponent} from "./news/news.component";
 import {ProfileComponent} from "./profile/profile.component";
 

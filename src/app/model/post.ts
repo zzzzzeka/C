@@ -1,7 +1,7 @@
-import {User} from "./user";
+import {Team} from "./team";
 
 export class Post {
   id: number;
   content: String;
-  author: User;
+  author: Team;
 }

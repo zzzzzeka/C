@@ -1,0 +1,9 @@
+<div>
+  <div *ngFor="let user of teams">
+    <a routerLink="../team/{{user.id}}">{{user.name}}</a>
+  </div>
+
+  <a routerLink="../team">New</a>
+</div>
+
+{{teams | json}}

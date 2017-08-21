@@ -1,7 +1,7 @@
-<form novalidate *ngIf="user">
+<form novalidate *ngIf="team">
 
   <!--<div>-->
-  <!--{{user|json}}-->
+  <!--{{team|json}}-->
   <!--</div>-->
 
   <div>
@@ -14,7 +14,7 @@
     <div class="form-group">
       <label for="inputInformation" class="control-label">Information</label>
       <div class="">
-        <textarea type="text" class="form-control" id="inputInformation" name="information" [(ngModel)]="user.information" style="width: 100%"></textarea>
+        <textarea type="text" class="form-control" id="inputInformation" name="information" [(ngModel)]="team.information" style="width: 100%"></textarea>
       </div>
     </div>
   </div>
@@ -23,14 +23,14 @@
     <div class="form-group">
       <label for="inputName" class="control-label col-xs-2">Name</label>
       <div class="col-xs-10">
-        <input type="text" class="form-control" id="inputName" name="name" [(ngModel)]="user.name">
+        <input type="text" class="form-control" id="inputName" name="name" [(ngModel)]="team.name">
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputAge" class="control-label col-xs-2">Age</label>
       <div class="col-xs-10">
-        <input type="text" class="form-control" id="inputAge" name="age" [(ngModel)]="user.age">
+        <input type="text" class="form-control" id="inputAge" name="age" [(ngModel)]="team.age">
       </div>
     </div>
 
@@ -38,7 +38,7 @@
       <label for="inputAge" class="control-label col-xs-2">Skills</label>
 
       <div class="col-xs-10">
-        <div *ngFor="let s of user.skills">
+        <div *ngFor="let s of team.skills">
 
           {{getSkillName(s.skillId)}}
 

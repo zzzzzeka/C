@@ -1,23 +1,23 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {User} from "../model/user";
-import {UserService} from "../services/user.service";
+import {Team} from "../model/team";
+import {TeamService} from "../services/team.service";
 import {Skill} from "../model/skill";
 import {ActivatedRoute, Router} from "@angular/router";
 import {isUndefined} from "util";
 
 @Component({
     selector: 'user',
-    templateUrl: 'user.component.html'
+    templateUrl: 'team.component.html'
   }
 )
-export class UserComponent implements OnInit {
-  user: User;
+export class TeamComponent implements OnInit {
+  team: Team;
   skills: Skill[];
   @Input() id: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private  userService: UserService) {
+              private  teamService: TeamService) {
     this.skills = [{id: 1, name: 'JAVA'},
       {id: 2, name: 'C++'},
       {id: 3, name: 'C#'},
@@ -29,15 +29,15 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     if (!isUndefined(this.id)) {
-      this.user = this.userService.loadById(this.id);
+      this.team = this.teamService.loadById(this.id);
     } else {
       this.route.params.subscribe(params => {
           this.id = params['id'];
 
           if (!isUndefined(this.id)) {
-            this.user = this.userService.loadById(this.id);
+            this.team = this.teamService.loadById(this.id);
           } else {
-            this.user = new User();
+            this.team = new Team();
           }
         }
       );
@@ -45,8 +45,8 @@ export class UserComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.userService.save(this.user);
-    this.router.navigate(['/users']);
+    this.teamService.save(this.team);
+    this.router.navigate(['/teams']);
   }
 
   public  removeSkill(skill) {

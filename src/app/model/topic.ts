@@ -1,9 +1,9 @@
-import {User} from "./user";
+import {Team} from "./team";
 import {Post} from "./post";
 export class Topic{
   id: number;
   title: String;
   content: String;
-  author: User;
+  author: Team;
   posts: Post[];
 }

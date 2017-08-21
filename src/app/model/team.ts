@@ -1,6 +1,6 @@
 import {UserSkill} from "./userSkill";
 
-export class User{
+export class Team{
   id: number;
   name: String = '';
   age: number;

@@ -11,6 +11,7 @@ import {routing} from "./app.routes";
 import {NewsComponent} from './news/news.component';
 import {PostComponent} from './news/post/post.component';
 import {DialogboxComponent} from './dialogbox/dialogbox.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {DialogboxComponent} from './dialogbox/dialogbox.component';
     UsersComponent,
     NewsComponent,
     PostComponent,
-    DialogboxComponent
+    DialogboxComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

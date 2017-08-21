@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {User} from "./model/user";
 import {UserService} from "./services/user.service";
 import {Skill} from "./model/skill";
@@ -13,6 +13,7 @@ import {isUndefined} from "util";
 export class UserComponent implements OnInit {
   user: User;
   skills: Skill[];
+  @Input() id: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -27,16 +28,20 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-        let id = params['id'];
+    if (!isUndefined(this.id)) {
+      this.user = this.userService.loadById(this.id);
+    } else {
+      this.route.params.subscribe(params => {
+          this.id = params['id'];
 
-        if (!isUndefined(id)) {
-          this.user = this.userService.loadById(id);
-        } else {
-          this.user = new User();
+          if (!isUndefined(this.id)) {
+            this.user = this.userService.loadById(this.id);
+          } else {
+            this.user = new User();
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   public onSubmit() {

@@ -1,9 +1,8 @@
-import {UserSkill} from "./userSkill";
+import {User} from "./user";
 
 export class Team{
   id: number;
-  name: String = '';
-  age: number;
-  skills: UserSkill[] = [];
+  login: String = '';
+  users: User[] = [];
   information: String = '';
 }

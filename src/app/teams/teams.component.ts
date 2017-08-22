@@ -12,4 +12,8 @@ export class TeamsComponent {
   constructor(private  userService: TeamService) {
     this.teams = this.userService.getAllTeams();
   }
+
+  public getTeamName(team: Team):String{
+    return team.users.map(u => u.name).join(" & ");
+  }
 }

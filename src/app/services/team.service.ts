@@ -6,8 +6,23 @@ import {Skill} from "../model/skill";
 @Injectable()
 export class TeamService {
   private teams: Team[] = [
-    {information:'', id: 1, name: 'aa', age: 1, skills: [{id: 1, skillId: 1, userId:1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 2}]},
-    {information:'', id: 2, name: 'bb', age: 2, skills: []}
+    {
+      id: 1, login: 'Profai', information: '',
+      users: [
+        {
+          id: 11,
+          name: 'aa',
+          age: 21,
+          skills: [{id: 1, skillId: 1, userId: 1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 4}]
+        },
+        {
+          id: 11,
+          name: 'bb',
+          age: 21,
+          skills: [{id: 1, skillId: 1, userId: 1, experience: 2}, {id: 2, skillId: 2, userId: 1, experience: 1}]
+        }]
+    },
+    {id: 2, login: 'Junioriai', information: '', users: [{id: 21, name: 'bb', age: 22, skills: []}]}
   ];
 
   private skills: string[] = [];
@@ -28,8 +43,8 @@ export class TeamService {
     return oldUser;
   }
 
-  loadByName(name: string):Team {
-    let user = this.teams.find((uu: Team) => (uu.name == name));
+  loadByLogin(login: string): Team {
+    let user = this.teams.find((uu: Team) => (uu.login == login));
     return user;
   }
 

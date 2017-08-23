@@ -10,61 +10,67 @@
     <img src="https://www.wallstreetotc.com/wp-content/uploads/2014/10/facebook-anonymous-app.jpg" height="80px">
   </div>
 
-  <div>
-    <div class="form-group">
-      <label for="inputInformation" class="control-label">Information</label>
-      <div class="">
+  <div class="">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well form-group">
+          <label for="inputInformation" class="control-label">Information</label>
+          <div class="">
         <textarea type="text" class="form-control" id="inputInformation" name="information"
                   [(ngModel)]="team.information" style="width: 100%"></textarea>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
+    <div class="row">
+      <div *ngFor="let user of team.users; let userIndex = index">
+        <div class="col-xs-12 col-md-6">
+          <div class="well">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label for="inputName" class="control-label col-xs-2">Name</label>
+                <div class="col-xs-10">
+                  <input type="text" class="form-control" id="inputName" name="name-{{userIndex}}"
+                         [(ngModel)]="user.name">
+                </div>
+              </div>
 
-  <div>
-    <div >
-      <div class="form-horizontal" *ngFor="let user of team.users">
-        {{user.name}}
+              <div class="form-group">
+                <label for="inputAge" class="control-label col-xs-2">Age</label>
+                <div class="col-xs-10">
+                  <input type="text" class="form-control" id="inputAge" name="age-{{userIndex}}" [(ngModel)]="user.age">
+                </div>
+              </div>
 
-        <div class="form-group">
-          <label for="inputName" class="control-label col-xs-2">Name</label>
-          <div class="col-xs-10">
-            <input type="text" class="form-control" id="inputName" name="name" [(ngModel)]="user.name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="inputAge" class="control-label col-xs-2">Age</label>
-          <div class="col-xs-10">
-            <input type="text" class="form-control" id="inputAge" name="age" [(ngModel)]="user.age">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="inputAge" class="control-label col-xs-2">Skills</label>
-
-          <div class="col-xs-10">
-            <div *ngFor="let s of user.skills">
-
-              {{getSkillName(s.skillId)}}
-
-              <select [(ngModel)]="s.experience" name="exp">
-                <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
-              </select>
+              <div class="form-group">
+                <label for="inputAge" class="control-label col-xs-2">Skills</label>
+                <div class="col-xs-10">
+                  <div class="row">
+                    <div class="form-group" *ngFor="let s of user.skills; let skIndex = index">
+                      <label for="inputAge" class="control-label col-xs-6 col-md-4">{{getSkillName(s.skillId)}}</label>
+                      <div class="col-xs-6  col-md-8">
+                        <select [(ngModel)]="s.experience" name="experience-{{userIndex}}-{{skIndex}}"
+                                class="form-control">
+                          <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <div class="">
+
+    <div class="row">
+      <div class="col-xs-12">
         <button (click)="onSubmit()" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
 
 </form>
-
-
-{{team | json}}
 

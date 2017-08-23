@@ -13,13 +13,13 @@ export class TeamService {
           id: 11,
           name: 'aa',
           age: 21,
-          skills: [{id: 1, skillId: 1, userId: 1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 4}]
+          skills: [{id: 1, skillId: 1, userId: 11, experience: -2}, {id: 2, skillId: 2, userId: 11, experience: 2}]
         },
         {
           id: 12,
           name: 'bb',
           age: 21,
-          skills: [{id: 1, skillId: 1, userId: 1, experience: 2}, {id: 2, skillId: 2, userId: 1, experience: 1}]
+          skills: [{id: 1, skillId: 1, userId: 12, experience: 2}, {id: 2, skillId: 2, userId: 12, experience: 1}]
         }]
     },
     {id: 2, login: 'Junioriai', information: '', users: [{id: 21, name: 'bb', age: 22, skills: []}]}

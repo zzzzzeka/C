@@ -9,11 +9,22 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <div class="well form-group">
-        <label for="inputInformation" class="control-label">Information</label>
-        <div class="">
-        <textarea type="text" class="form-control" id="inputInformation" name="information"
-                  [(ngModel)]="team.information" style="width: 100%"></textarea>
+      <div class="well">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="inputInformation" class="control-label col-xs-1">Information</label>
+            <div class="col-xs-12">
+            <textarea type="text" class="form-control" id="inputInformation" name="information"
+                      [(ngModel)]="team.information" style="width: 100%"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputLocation" class="control-label col-xs-1">Location</label>
+            <div class="col-xs-11">
+              <input type="text" class="form-control" id="inputLocation" name="location"
+                     [(ngModel)]="team.id">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,7 +70,7 @@
                 </div>
               </div>
             </div>
-            <div class="text-right" style="margin-top: -15px"  *ngIf="team.users.length > 1">
+            <div class="text-right" style="margin-top: -15px" *ngIf="team.users.length > 1">
               <button class="btn btn-link" (click)="deleteUser(user)" style="padding: 0px">Delete user</button>
             </div>
           </div>

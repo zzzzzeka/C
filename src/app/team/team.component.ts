@@ -4,6 +4,7 @@ import {TeamService} from "../services/team.service";
 import {Skill} from "../model/skill";
 import {ActivatedRoute, Router} from "@angular/router";
 import {isUndefined} from "util";
+import {User} from "../model/user";
 
 @Component({
     selector: 'user',
@@ -64,5 +65,13 @@ export class TeamComponent implements OnInit {
 
   public getSkillName(id: number): String {
     return this.skills.find(s => s.id == id).name;
+  }
+
+  public addUser() {
+    this.team.users.push(new User());
+  }
+
+  public deleteUser(user: User) {
+    this.team.users = this.team.users.filter(u => u != user);
   }
 }

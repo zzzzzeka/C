@@ -16,7 +16,7 @@ export class TeamService {
           skills: [{id: 1, skillId: 1, userId: 1, experience: 5}, {id: 2, skillId: 2, userId: 1, experience: 4}]
         },
         {
-          id: 11,
+          id: 12,
           name: 'bb',
           age: 21,
           skills: [{id: 1, skillId: 1, userId: 1, experience: 2}, {id: 2, skillId: 2, userId: 1, experience: 1}]
@@ -34,7 +34,7 @@ export class TeamService {
   public save(team: Team): Team {
     let oldUser: Team = this.teams.find((uu: Team) => (uu.id == team.id));
     if (isUndefined(oldUser)) {
-      team.id = 13;
+      team.id = Math.random();
       this.teams.push(team);
       oldUser = team;
     } else {

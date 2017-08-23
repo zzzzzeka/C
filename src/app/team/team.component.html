@@ -10,56 +10,64 @@
     <img src="https://www.wallstreetotc.com/wp-content/uploads/2014/10/facebook-anonymous-app.jpg" height="80px">
   </div>
 
-  <div class="">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="well form-group">
-          <label for="inputInformation" class="control-label">Information</label>
-          <div class="">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="well form-group">
+        <label for="inputInformation" class="control-label">Information</label>
+        <div class="">
         <textarea type="text" class="form-control" id="inputInformation" name="information"
                   [(ngModel)]="team.information" style="width: 100%"></textarea>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div *ngFor="let user of team.users; let userIndex = index">
-        <div class="col-xs-12 col-md-6">
-          <div class="well">
-            <div class="form-horizontal">
-              <div class="form-group">
-                <label for="inputName" class="control-label col-xs-2">Name</label>
-                <div class="col-xs-10">
-                  <input type="text" class="form-control" id="inputName" name="name-{{userIndex}}"
-                         [(ngModel)]="user.name">
-                </div>
+  <div class="text-right">
+    <button class="btn btn-link" (click)="addUser()">Add user</button>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let user of team.users; let userIndex = index">
+      <div class="col-xs-12 col-md-6">
+        <div class="well">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="inputName" class="control-label col-xs-2">Name</label>
+              <div class="col-xs-10">
+                <input type="text" class="form-control" id="inputName" name="name-{{userIndex}}"
+                       [(ngModel)]="user.name">
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="inputAge" class="control-label col-xs-2">Age</label>
-                <div class="col-xs-10">
-                  <input type="text" class="form-control" id="inputAge" name="age-{{userIndex}}" [(ngModel)]="user.age">
-                </div>
+            <div class="form-group">
+              <label for="inputAge" class="control-label col-xs-2">Age</label>
+              <div class="col-xs-10">
+                <input type="text" class="form-control" id="inputAge" name="age-{{userIndex}}"
+                       [(ngModel)]="user.age">
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="inputAge" class="control-label col-xs-2">Skills</label>
-                <div class="col-xs-10">
-                    <div class="form-group" *ngFor="let s of user.skills; let skIndex = index">
-                      <label for="inputAge"
-                             class="control-label col-xs-6 col-md-4 input-sm">{{getSkillName(s.skillId)}}</label>
-                      <div class="col-xs-6  col-md-8">
-                        <select [(ngModel)]="s.experience" name="experience-{{userIndex}}-{{skIndex}}"
-                                class="form-control input-sm">
-                          <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
-                        </select>
-                      </div>
-                    </div>
+            <div class="form-group">
+              <label for="inputAge" class="control-label col-xs-2">Skills</label>
+              <div class="col-xs-10">
+                <div class="form-group" *ngFor="let s of user.skills; let skIndex = index">
+                  <label for="inputAge"
+                         class="control-label col-xs-6 col-md-4 input-sm">{{getSkillName(s.skillId)}}</label>
+                  <div class="col-xs-6  col-md-8">
+                    <select [(ngModel)]="s.experience" name="experience-{{userIndex}}-{{skIndex}}"
+                            class="form-control input-sm">
+                      <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
+                    </select>
                   </div>
-                              </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-right" style="margin-top: -15px"  *ngIf="team.users.length > 1">
+              <button class="btn btn-link" (click)="deleteUser(user)" style="padding: 0px">Delete user</button>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -1,0 +1,9 @@
+.bigavatar{
+  width: 100%;
+  max-width: 215px;
+}
+
+.smallavatar{
+  width: 22%;
+  max-width: 50px;
+}

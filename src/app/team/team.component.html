@@ -1,9 +1,5 @@
 <form novalidate *ngIf="team">
 
-  <!--<div>-->
-  <!--{{team|json}}-->
-  <!--</div>-->
-
   <div>
     <img src="https://www.wallstreetotc.com/wp-content/uploads/2014/10/facebook-anonymous-app.jpg" height="80px">
     <img src="https://www.wallstreetotc.com/wp-content/uploads/2014/10/facebook-anonymous-app.jpg" height="80px">
@@ -28,14 +24,14 @@
   </div>
 
   <div class="row">
-    <div *ngFor="let user of team.users; let userIndex = index">
+    <div *ngFor="let user of team.users;let userIndex = index">
       <div class="col-xs-12 col-md-6">
         <div class="well">
           <div class="form-horizontal">
             <div class="form-group">
               <label for="inputName" class="control-label col-xs-2">Name</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" id="inputName" name="name-{{userIndex}}"
+                <input type="text" class="form-control" id="inputName" name="name-{{user.id}}"
                        [(ngModel)]="user.name">
               </div>
             </div>
@@ -43,7 +39,7 @@
             <div class="form-group">
               <label for="inputAge" class="control-label col-xs-2">Age</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" id="inputAge" name="age-{{userIndex}}"
+                <input type="text" class="form-control" id="inputAge" name="age-{{user.id}}"
                        [(ngModel)]="user.age">
               </div>
             </div>
@@ -55,7 +51,7 @@
                   <label for="inputAge"
                          class="control-label col-xs-6 col-md-4 input-sm">{{getSkillName(s.skillId)}}</label>
                   <div class="col-xs-6  col-md-8">
-                    <select [(ngModel)]="s.experience" name="experience-{{userIndex}}-{{skIndex}}"
+                    <select [(ngModel)]="s.experience" name="experience-{{user.id}}-{{skIndex}}"
                             class="form-control input-sm">
                       <option *ngFor="let i of [-2,-1,0,1,2]">{{i}}</option>
                     </select>

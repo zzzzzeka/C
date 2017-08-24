@@ -7,7 +7,10 @@ import {Skill} from "../model/skill";
 export class TeamService {
   private teams: Team[] = [
     {
-      id: 1, login: 'Profai', information: '',
+      id: 1,
+      login: 'Profai',
+      location: {countryId: 1, countryName: 'Lithuanya', cityId: 11, cityName: 'Vilnius'},
+      information: '',
       users: [
         {
           id: 11,
@@ -22,7 +25,7 @@ export class TeamService {
           skills: [{id: 1, skillId: 1, userId: 12, experience: 2}, {id: 2, skillId: 2, userId: 12, experience: 1}]
         }]
     },
-    {id: 2, login: 'Junioriai', information: '', users: [{id: 21, name: 'bb', age: 22, skills: []}]}
+    {id: 2, login: 'Junioriai', location: {countryId: 1, countryName: 'Lithuanya', cityId: 11, cityName: 'Vilnius'}, information: '', users: [{id: 21, name: 'bb', age: 22, skills: []}]}
   ];
 
   private skills: string[] = [];

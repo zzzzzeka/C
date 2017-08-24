@@ -1,8 +1,11 @@
 import {User} from "./user";
+import {UserLocation} from "./UserLocation";
 
 export class Team{
   id: number;
   login: String = '';
-  users: User[] = [];
+  location: UserLocation = new UserLocation();
   information: String = '';
+  users: User[] = [];
+
 }

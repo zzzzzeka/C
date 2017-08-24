@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angula
 import {DialogboxComponent} from "../dialogbox/dialogbox.component";
 import {UserLocation} from "../model/UserLocation";
 import {LocationService} from "../services/userlocation.service";
+import {isUndefined} from "util";
 
 @Component({
   selector: 'location',
@@ -16,6 +17,7 @@ export class LocationComponent implements OnInit {
   private countriesList;
   private selectedCountry;
   private selectedCity;
+  private message;
 
   constructor(private locationService: LocationService) {
     this.countriesList = locationService.getCoutries();
@@ -33,16 +35,20 @@ export class LocationComponent implements OnInit {
   }
 
   saveLocation() {
-    this.locationChange.emit({
-      countryId: this.selectedCountry.id,
-      countryName: this.selectedCountry.name,
-      cityId: this.selectedCity.id,
-      cityName: this.selectedCity.name
-    });
-    this.locationDialog.hide();
+    if (isUndefined(this.selectedCity)) {
+      this.message = "Select city!"
+    } else {
+      this.locationChange.emit({
+        countryId: this.selectedCountry.id,
+        countryName: this.selectedCountry.name,
+        cityId: this.selectedCity.id,
+        cityName: this.selectedCity.name
+      });
+      this.locationDialog.hide();
+    }
   }
 
-  countryChanged(){
-    this.selectedCity = {};
+  countryChanged() {
+    this.selectedCity = undefined;
   }
 }

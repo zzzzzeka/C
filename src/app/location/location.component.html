@@ -4,17 +4,28 @@
 </strong>
 
 <dialogbox #dialogBox [title]="'Select location'">
-  {{country | json}}
-  {{city | json}}
-  <div>
-    <select [(ngModel)]="selectedCountry" (change)="countryChanged()">
-      <option *ngFor="let c of countriesList" [ngValue]="c" >{{c.name}}</option>
-    </select>
-    <select [(ngModel)]="selectedCity" *ngIf="selectedCountry">
-      <option *ngFor="let s of selectedCountry.cities" [ngValue]="s">{{s.name}}</option>
-    </select>
+  <div *ngIf="message" class="alert alert-danger">
+    {{message}}
   </div>
-  <div>
-    <button (click)="saveLocation()" class="btn btn-success">Ok</button>
+  <div class="row">
+    <div class="form-group">
+      <label for="inputCountry" class="control-label col-xs-4">Country</label>
+      <div class="col-xs-8">
+        <select class="form-control" [(ngModel)]="selectedCountry" (change)="countryChanged()" id="inputCountry">
+          <option *ngFor="let c of countriesList" [ngValue]="c">{{c.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputCity" class="control-label col-xs-4">City</label>
+      <div class="col-xs-8">
+        <select class="form-control" [(ngModel)]="selectedCity" *ngIf="selectedCountry" id="inputCity">
+          <option *ngFor="let s of selectedCountry.cities" [ngValue]="s">{{s.name}}</option>
+        </select>
+      </div>
+      <div class="col-xs-8">
+        <button (click)="saveLocation()" class="btn btn-success">Ok</button>
+      </div>
+    </div>
   </div>
 </dialogbox>

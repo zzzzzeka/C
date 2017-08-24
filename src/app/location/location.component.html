@@ -1,0 +1,8 @@
+<strong>
+  <button type="button" class="btn btn-link" (click)="showDialog()">{{location.countryName}}, {{location.cityName}}</button>
+</strong>
+
+<dialogbox #dialogBox [title]="'Select location'">
+  <div><input [(ngModel)]="tmpLocation.cityName"></div>
+  <div><button (click)="saveLocation()" class="btn btn-success">Ok</button></div>
+</dialogbox>

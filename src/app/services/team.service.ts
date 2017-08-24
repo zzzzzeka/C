@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Team} from "../model/team";
 import {isUndefined} from "util";
-import {Skill} from "../model/skill";
 
 @Injectable()
 export class TeamService {
@@ -25,7 +24,13 @@ export class TeamService {
           skills: [{id: 1, skillId: 1, userId: 12, experience: 2}, {id: 2, skillId: 2, userId: 12, experience: 1}]
         }]
     },
-    {id: 2, login: 'Junioriai', location: {countryId: 1, countryName: 'Lithuanya', cityId: 11, cityName: 'Vilnius'}, information: '', users: [{id: 21, name: 'bb', age: 22, skills: []}]}
+    {
+      id: 2,
+      login: 'Junioriai',
+      location: {countryId: 1, countryName: 'Lithuanya', cityId: 11, cityName: 'Vilnius'},
+      information: '',
+      users: [{id: 21, name: 'bb', age: 22, skills: []}]
+    }
   ];
 
   private skills: string[] = [];

@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef, Input} from '@angular/core';
 
 @Component({
   selector: 'dialogbox',
@@ -7,6 +7,7 @@ import {Component, OnInit, ElementRef} from '@angular/core';
 })
 export class DialogboxComponent implements OnInit {
   private element;
+  @Input()title:String = '';
 
   constructor(private el: ElementRef) {
     this.element = el.nativeElement;
@@ -22,7 +23,7 @@ export class DialogboxComponent implements OnInit {
     });
   }
 
-  public show() {
+  public  show() {
     this.element.style.display = 'block';
   }
 

@@ -1,16 +1,11 @@
-<div #dialogbox class="background">
-
-  <div class="dialog">
-    <div align="right">
-      <button (click)="hide()">X</button>
+<div class="background">
+  <div class="dialog well">
+    <div>
+      <strong>{{title}}</strong><button class="btn btn-link pull-right" (click)="hide()">X</button>
     </div>
-    <ng-content select="[header]"></ng-content>
     <div class="content">
-      <div class="body">
-        <ng-content select="[body]"></ng-content>
-      </div>
+      <ng-content></ng-content>
     </div>
-    <ng-content select="[footer]"></ng-content>
   </div>
 </div>
 

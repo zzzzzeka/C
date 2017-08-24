@@ -11,7 +11,8 @@ import {NewsComponent} from "./news/news.component";
 import {PostComponent} from "./news/post/post.component";
 import {DialogboxComponent} from "./dialogbox/dialogbox.component";
 import {ProfileComponent} from "./profile/profile.component";
-import { LocationComponent } from './location/location.component';
+import {LocationComponent} from "./location/location.component";
+import {LocationService} from "./services/userlocation.service";
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { LocationComponent } from './location/location.component';
     ReactiveFormsModule,
     routing
   ],
-  providers: [TeamService],
+  providers: [TeamService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

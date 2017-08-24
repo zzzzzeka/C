@@ -1,8 +1,20 @@
 <strong>
-  <button type="button" class="btn btn-link" (click)="showDialog()">{{location.countryName}}, {{location.cityName}}</button>
+  <button type="button" class="btn btn-link" (click)="showDialog()">{{location.countryName}}, {{location.cityName}}
+  </button>
 </strong>
 
 <dialogbox #dialogBox [title]="'Select location'">
-  <div><input [(ngModel)]="tmpLocation.cityName"></div>
-  <div><button (click)="saveLocation()" class="btn btn-success">Ok</button></div>
+  {{country | json}}
+  {{city | json}}
+  <div>
+    <select [(ngModel)]="selectedCountry" (change)="countryChanged()">
+      <option *ngFor="let c of countriesList" [ngValue]="c" >{{c.name}}</option>
+    </select>
+    <select [(ngModel)]="selectedCity" *ngIf="selectedCountry">
+      <option *ngFor="let s of selectedCountry.cities" [ngValue]="s">{{s.name}}</option>
+    </select>
+  </div>
+  <div>
+    <button (click)="saveLocation()" class="btn btn-success">Ok</button>
+  </div>
 </dialogbox>

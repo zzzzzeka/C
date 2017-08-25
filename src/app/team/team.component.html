@@ -1,5 +1,12 @@
 <form novalidate *ngIf="team">
 
+
+  <input typeahead>
+  <template #itemTpl let-result>
+    <strong>MY {{ result.result }}</strong>
+  </template>
+
+
   <div class="row">
     <div class="col-xs-12 col-sm-3">
       <div class="row text-center">
